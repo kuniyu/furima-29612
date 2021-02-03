@@ -33,10 +33,11 @@
 | price            | integer  | null: false                    |
 | user_id          | integer  | null: false, foreign_key: true |
 
+
 ### Association
 
 - belongs_to :user
-- has_one :purchase_records
+- has_one :purchase_record
 
 ## addresses テーブル
 
@@ -45,19 +46,20 @@
 - belongs_to :purchase_record
 
 
-| Column         | Type     | Options     |
-| -------------- | -------  | ----------- |
-| postal_code    | string   | null: false |
-| shipfrom       | string   | null: false |
-| municipalities | string   | null: false |
-| house_number   | string   | null: false |
-| phone_number   | string   | null: false |
+| Column             | Type     | Options                        |
+| ------------------ | -------  | ------------------------------ |
+| postal_code        | string   | null: false                    |
+| shipfrom           | string   | null: false                    |
+| municipalities     | string   | null: false                    |
+| house_number       | string   | null: false                    |
+| phone_number       | string   | null: false                    |
+| purchase_record_id | integer  | null: false, foreign_key: true |
 
 ## purchase records テーブル 
 
 ### Association
 
-
+- belongs_to :user
 - belongs_to :item
 - has_one :address
 
