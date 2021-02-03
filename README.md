@@ -2,16 +2,18 @@
 
 ## users テーブル
 
-| Column          | Type   　| Options     |
-| --------------- | ------ 　| ----------- |
-| nickname        | string 　| null: false |
-| email           | string 　| null: false |
-| password        | string 　| null: false |
-| last name       | string 　| null: false |
-| last name kana  | string 　| null: false |
-| first name      | string 　| null: false |
-| first name kana | string　 | null: false |
-| birthday        | integer　| null: false |
+| Column             | Type   　| Options     |
+| ---------------    | ------ 　| ----------- |
+| nickname           | string 　| null: false |
+| email              | string 　| null: false |
+| encrypted_password | string 　| null: false |
+| last name          | string 　| null: false |
+| last name kana     | string 　| null: false |
+| first name         | string 　| null: false |
+| first name kana    | string　 | null: false |
+| birth year         | date　   | null: false |
+| birth month        | date　   | null: false |
+| date of birth      | date　   | null: false |
 
 ### Association
 
@@ -21,17 +23,17 @@
 
 ## items テーブル
 
-| Column        | Type   　| Options     |
-| ------------- | ------ 　| ----------- |
-| product name  | string 　| null: false |
-| image         | string 　| null: false |
-| describe      | text 　  | null: false |
-| category      | string 　| null: false |
-| shipping fee  | string 　| null: false |
-| shipfrom      | string 　| null: false |
-| delivery time | string 　| null: false |
-| price         | integer　| null: false |
-| user_id       | integer　| null: false |
+| Column           | Type   　| Options     |
+| -------------    | ------ 　| ----------- |
+| product name     | string 　| null: false |
+| describe         | text 　  | null: false |
+| category_id      | integer 　| null: false|
+| condition_id     | integer 　| null: false|
+| shipping fee_id  | integer　| null: false |
+| shipfrom_id      | integer　| null: false |
+| delivery time_id | integer　| null: false |
+| price            | integer　| null: false |
+| user_id          | integer　| null: false |
 
 ### Association
 
@@ -42,25 +44,26 @@
 
 ### Association
 
-- belongs_to :users
-- has_many :purchase records
+- belongs_to :purchase records
+
 
 | Column         | Type     | Options     |
 | -------------- | -------  | ----------- |
-| postal code    | integer  | null: false |
-| prefectures    | string   | null: false |
+| postal code    | string  | null: false |
+| shipfrom       | string   | null: false |
 | municipalities | string   | null: false |
 | house number   | string   | null: false |
-| phone number   | integer  | null: false |
+| phone number   | string  | null: false |
 
 ## purchase records テーブル 
 
 ### Association
 
-- belongs_to :users
+
 - belongs_to :items
+- has_one :addresses
 
 | Column         | Type     | Options     |
 | -------------- | -------  | ----------- |
 | user_id        | integer  | null: false |
-| item name      | string   | null: false |
+| item_id        | integer  | null: false |
