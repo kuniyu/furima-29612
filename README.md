@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type     | Options     |
-| ---------------    | ------   | ----------- |
-| nickname           | string   | null: false |
-| email              | string   | null: false |
-| encrypted_password | string   | null: false |
-| last_name          | string   | null: false |
-| last_name kana     | string   | null: false |
-| first_name         | string   | null: false |
-| first_name kana    | string   | null: false |
-| birthday           | date     | null: false |
+| Column             | Type     | Options                  |
+| ---------------    | ------   | -----------              |
+| nickname           | string   | null: false              |
+| email              | string   | null: false, unique true |
+| encrypted_password | string   | null: false              |
+| last_name          | string   | null: false              |
+| last_name kana     | string   | null: false              |
+| first_name         | string   | null: false              |
+| first_name kana    | string   | null: false              |
+| birthday           | date     | null: false              |
 
 
 ### Association
@@ -28,7 +28,7 @@
 | category_id      | integer  | null: false                    |
 | condition_id     | integer  | null: false                    |
 | shipping fee_id  | integer  | null: false                    |
-| shipfrom_id      | integer  | null: false                    |
+| prefectures_id   | integer  | null: false                    |
 | delivery time_id | integer  | null: false                    |
 | price            | integer  | null: false                    |
 | user_id          | integer  | null: false, foreign_key: true |
@@ -49,7 +49,7 @@
 | Column             | Type     | Options                        |
 | ------------------ | -------  | ------------------------------ |
 | postal_code        | string   | null: false                    |
-| shipfrom           | string   | null: false                    |
+| prefectures_id     | integer  | null: false                    |
 | municipalities     | string   | null: false                    |
 | house_number       | string   | null: false                    |
 | phone_number       | string   | null: false                    |
