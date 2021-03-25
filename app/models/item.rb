@@ -19,8 +19,8 @@ class Item < ApplicationRecord
     validates :category_id
     validates :condition_id
     validates :shipping_fee_id
-    validates :prefectures_id
-    validates :delivery_time_id
+    validates :prefecture_id
+    validates :deliverytime_id
   end
 
   validates :price, numericality: { only_integer: true }
