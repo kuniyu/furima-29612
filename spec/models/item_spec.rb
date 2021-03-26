@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品機能' do
     context '商品出品できるとき' do
-      it 'image,product_name,describe,category_id,condition_id,shipping_fee_id,prefectures_id,delivery_time_id,priceがあれば出品できる' do
+      it 'image,product_name,describe,category_id,condition_id,shipping_fee_id,prefecture_id,deliverytime_id,priceがあれば出品できる' do
         expect(@item).to be_valid
       end
       it 'priceが300円なら出品できる' do
@@ -54,13 +54,13 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee must be other than 0")
       end
-      it 'prefectures_idがないと出品できない' do
+      it 'prefecture_idがないと出品できない' do
         @item.prefectures_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefectures must be other than 0")
         
       end
-      it 'delivery_time_idがないと出品できない' do
+      it 'deliverytime_idがないと出品できない' do
         @item.delivery_time_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery time must be other than 0")
