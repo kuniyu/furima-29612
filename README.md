@@ -49,7 +49,7 @@
 | Column             | Type     | Options                        |
 | ------------------ | -------  | ------------------------------ |
 | postal_code        | string   | null: false                    |
-| prefectures_id     | integer  | null: false                    |
+| prefecture_id      | integer  | null: false                    |
 | municipalities     | string   | null: false                    |
 | block_number       | string   | null: false                    |
 | building_number    | string   |                                |
