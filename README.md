@@ -56,7 +56,7 @@
 | phone_number       | string   | null: false                    |
 | purchase_record_id | integer  | null: false, foreign_key: true |
 
-## purchase records テーブル 
+## purchase record テーブル 
 
 ### Association
 
