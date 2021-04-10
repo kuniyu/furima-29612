@@ -39,7 +39,7 @@
 - belongs_to :user
 - has_one :purchase
 
-## addresses テーブル
+## address テーブル
 
 ### Association
 pu
