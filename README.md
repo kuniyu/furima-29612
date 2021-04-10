@@ -42,7 +42,7 @@
 ## addresses テーブル
 
 ### Association
-
+pu
 - belongs_to :purchase
 
 
