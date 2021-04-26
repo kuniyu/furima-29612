@@ -1,7 +1,10 @@
 class PurchasesController < ApplicationController
+  before_action :set_item, only: [:index, :create] 
+  
+   
+  
   def index
     @order = Order.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -11,7 +14,6 @@ class PurchasesController < ApplicationController
       @order.save
       return redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render :index
     end
   end
@@ -21,7 +23,11 @@ class PurchasesController < ApplicationController
   def order_params
     params.permit(:postal_code, :prefecture_id, :municipal, :block_number, :phone_number, :building_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
-  
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def pay_item
     item = Item.find(params[:item_id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
