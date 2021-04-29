@@ -1,7 +1,7 @@
 class Order
   include ActiveModel::Model
   attr_accessor :postal_code, :prefecture_id, :municipal, :block_number, 
-  :building_number, :phone_number, :purchase_id, :user_id, :item_id, :token
+  :building_number, :phone_number, :user_id, :item_id, :token
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
 
   with_options presence: true do
