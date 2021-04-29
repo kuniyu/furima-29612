@@ -54,6 +54,16 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number is invalid")
       end
+      it 'phone_numberに全角が含まれていると保存できない' do
+        @order.phone_number = '０００００００００００'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'phone_numberが12桁以上だと保存できない' do
+        @order.phone_number = '000000000000'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phone number is invalid")
+      end
       it 'tokenが空では保存できない' do
         @order.token = ''
         @order.valid?
