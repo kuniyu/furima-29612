@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchase_records
+- has_many :purchases
 
 ## items テーブル
 
@@ -37,26 +37,26 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchase_record
+- has_one :purchase
 
-## addresses テーブル
+## address テーブル
 
 ### Association
 
-- belongs_to :purchase_record
+- belongs_to :purchase
 
 
 | Column             | Type     | Options                        |
 | ------------------ | -------  | ------------------------------ |
 | postal_code        | string   | null: false                    |
-| prefectures_id     | integer  | null: false                    |
-| municipalities     | string   | null: false                    |
+| prefecture_id      | integer  | null: false                    |
+| municipal          | string   | null: false                    |
 | block_number       | string   | null: false                    |
 | building_number    | string   |                                |
 | phone_number       | string   | null: false                    |
-| purchase_record_id | integer  | null: false, foreign_key: true |
+| purchase_id        | integer  | null: false, foreign_key: true |
 
-## purchase records テーブル 
+## purchase  テーブル 
 
 ### Association
 

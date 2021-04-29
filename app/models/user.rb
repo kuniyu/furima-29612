@@ -3,6 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :purchases
 
   with_options presence: true do
     validates :nickname
@@ -25,7 +26,7 @@ class User < ApplicationRecord
     validates :last_name_kana
   end 
   
-  with_options format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/} do
+  with_options format: {with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/} do
     validates :password
     validates :password_confirmation
   end
